@@ -12,7 +12,8 @@ const createApp = (data) => {
     <div id="app">
       <h1>
         {data.greetingMessage[0].toUpperCase()}
-        <br />
+        {/* 해킹이 아니라, 명시적으로 JSX 구문에서 공백을 설정하는 방법 */}{" "}
+        {/* <br /> */}
         {data.greetingMessage[1].toUpperCase()}
       </h1>
       <p>{data.message}</p>
