@@ -6,6 +6,14 @@ settings:
 
 dependencies:
   react:
+    specifier: 18.2.0
+    version: 18.2.0
+  react-dom:
+    specifier: 18.2.0
+    version: 18.2.0(react@18.2.0)
+
+dependencies:
+  react:
     specifier: ^18.2.0
     version: 18.2.0
   react-dom:
@@ -13,6 +21,15 @@ dependencies:
     version: 18.2.0(react@18.2.0)
 
 devDependencies:
+  '@types/react':
+    specifier: 18.2.48
+    version: 18.2.48
+  '@types/react-dom':
+    specifier: 18.2.18
+    version: 18.2.18
+  typescript:
+    specifier: 5.3.3
+    version: 5.3.3
   '@types/react':
     specifier: ^18.2.48
     version: 18.2.48
