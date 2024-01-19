@@ -8,23 +8,29 @@ const data = {
 };
 
 const createApp = (
-  { greetingMessage: [firstMessage, lastMessage], message },
-  options = {}
+  // data
+  // [0] data
+  // [3]
+  data,
+  // options
+  options = {} // [ES6 Core] default parameter
 ) => {
   // [1]
-  // const = {
-  //   greetingMessage: [firstMessage, lastMessage],
-  //   message,
-  // } = data;
+  // const { greetingMessage: [ firstMessage, lastMessage ], message } = data;
+
   return (
     <div id="app">
       <h1>
-        {firstMessage.toUpperCase()}
+        {data.greetingMessage[0].toUpperCase()}
         <br />
-        {lastMessage.toUpperCase()}
+        {data.greetingMessage[1].toUpperCase()}
       </h1>
-      <p>{message}</p>
+      <p>{data.message}</p>
       <form>
+        {/* ❌ */}
+        {/* <input aria-label="중요도" type="range" disabled="options.isDisabled" /> */}
+        {/* ✅ */}
+        {/* props 또한 {} 안에 값을 끼워넣을 수 있음 */}
         <input
           type="range"
           min={options.min}
@@ -43,11 +49,15 @@ const rootElement = document.getElementById("root");
 const reactDomRoot = createRoot(rootElement);
 
 reactDomRoot.render(
-  createApp(data, {
-    label: "중요도",
-    isDisabled: false,
-    min: 0,
-    step: 1,
-    max: 20,
-  })
+  createApp(
+    data,
+    /* options 객체 */
+    {
+      label: "중요도",
+      isDisabled: false,
+      min: 0,
+      step: 1,
+      max: 20,
+    }
+  )
 );
