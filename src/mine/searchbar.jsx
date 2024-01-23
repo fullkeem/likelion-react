@@ -1,6 +1,5 @@
 // React, ReactDOM
-import React from "https://esm.sh/react";
-import { createRoot } from "https://esm.sh/react-dom";
+import { createRoot } from 'https://esm.sh/react-dom';
 
 const iconCircle = (
   <svg
@@ -81,5 +80,5 @@ const searchBar = (
   </form>
 );
 // Creating React Element
-createRoot(document.getElementById("root")).render(searchBar);
+createRoot(document.getElementById('root')).render(searchBar);
 // ReactDOM
