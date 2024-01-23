@@ -1,4 +1,4 @@
-import FormControl from './/FormControl';
+import FormControl from './FormControl';
 import './01-searchbar.css';
 import IconNaver from './IconNaver';
 import SearchButton from './SearchButton';

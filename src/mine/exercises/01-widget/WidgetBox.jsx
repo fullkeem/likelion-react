@@ -1,17 +1,14 @@
-import './Widget.css';
+import WeatherIcon from './WeatherIcon';
+import './WidgetBox.css';
 
-const WidgetBox = () => {
+const WidgetBox = (props) => {
   return (
     <article className="widget widget__weather">
-      <h2 className="sr-only">날씨</h2>
-      <img
-        src="/images/weather-partly-cloudy.svg"
-        alt="맑고 구름 조금"
-        title="맑고 구름 조금"
-      />
+      <h2 className="sr-only">{props.location} 날씨</h2>
+      <WeatherIcon type={props.type} />
       <div className="weather__info" role="group">
-        <span className="weather__info--template">-0.9°</span>
-        <span className="weather__info--description">어제보다 1.3° 낮아요</span>
+        <span className="weather__info--template">{props.temperature}</span>
+        <span className="weather__info--description">{props.summary}</span>
       </div>
     </article>
   );
