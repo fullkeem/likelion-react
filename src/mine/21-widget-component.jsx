@@ -5,6 +5,7 @@ const Widget = () => {
   return (
     <>
       <WidgetBox
+        className={'weather__info--template'}
         type={'sunny'}
         temperature={-0.9}
         summary="어제보다 1.3° 낮아요"
@@ -12,6 +13,7 @@ const Widget = () => {
       />
       <Button loading>저장</Button>
       <WidgetBox
+        className={'weather__info--fineDust'}
         type={'FineDust'}
         temperature={'11 좋음'}
         summary="미세먼지"
