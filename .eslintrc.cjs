@@ -6,7 +6,9 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:react/jsx-runtime',
   ],
   overrides: [
@@ -25,5 +27,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react'],
-  rules: {},
+  rules: {
+    'react/prop-types': 'off',
+    // "react/jsx-uses-react": "off",
+    // "react/react-in-jsx-scope": "off"
+  },
 };
