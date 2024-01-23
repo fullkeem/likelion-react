@@ -1,5 +1,4 @@
-import React from "https://esm.sh/react";
-import { createRoot } from "https://esm.sh/react-dom";
+import { createRoot } from 'https://esm.sh/react-dom';
 
 // HTML vs. JSX (HTML 아님, 문법은 XML과 유사)
 
@@ -27,9 +26,9 @@ import { createRoot } from "https://esm.sh/react-dom";
 // <label for></label>
 
 const data = {
-  greetingMessage: ["hello!", "react."],
+  greetingMessage: ['hello!', 'react.'],
   message:
-    "리액트는 사용자 인터페이스 구축을 위한 JavaScript 오픈소스 라이브러리입니다.",
+    '리액트는 사용자 인터페이스 구축을 위한 JavaScript 오픈소스 라이브러리입니다.',
 };
 
 const createApp = (data) => {
@@ -54,7 +53,7 @@ const createApp = (data) => {
   );
 };
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 const reactDomRoot = createRoot(rootElement);
 
 reactDomRoot.render(createApp(data));
