@@ -1,15 +1,10 @@
 import { createRoot } from 'react-dom/client';
-import FormControl from './component/FormControl';
-
-// [학습 주제]
-// 컴포넌트 재사용
-
-// .formControl>label+input
+import SearchBar from './component/SearchBar';
 
 function App() {
   return (
     <div id="app">
-      <FormControl />
+      <SearchBar />
     </div>
   );
 }

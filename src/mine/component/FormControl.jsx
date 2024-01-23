@@ -1,9 +1,9 @@
-import React from 'react';
-
 const FormControl = () => {
-  <div className="formControl">
-    <label htmlFor="username">이름</label>
-    <input type="text" name="username" id="username" />
+  <div role="group">
+    <label htmlFor="search" className="sr-only">
+      검색어
+    </label>
+    <input id="search" type="search" placeholder="검색어를 입력해주세요." />
   </div>;
 };
 

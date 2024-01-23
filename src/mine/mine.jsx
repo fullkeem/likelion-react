@@ -1,10 +1,10 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "./component/App.class";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './component/App.class';
 
 // React.Component Type 1 :: class syntax
 
-const domElement = document.getElementById("root");
+const domElement = document.getElementById('root');
 
 if (domElement) {
   const reactDomRoot = createRoot(domElement);
