@@ -1,9 +1,9 @@
-import Widget from './21-widget-component';
+import Button from './component/Button/Button';
 
 export default function App() {
   return (
     <div className="app">
-      <Widget />
+      <Button />
     </div>
   );
 }
