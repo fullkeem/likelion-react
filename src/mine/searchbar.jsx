@@ -64,6 +64,7 @@ const iconNaver = (
 const searchBar = (
   <form className="searchBar">
     <div role="group">
+      {iconNaver}
       <label htmlFor="search" className="sr-only">
         검색어
       </label>
