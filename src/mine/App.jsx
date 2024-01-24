@@ -1,9 +1,9 @@
-import Button from './component/Button/Button';
+import ContactCard from './component/ContactCard/ContactCard';
 
 export default function App() {
   return (
     <div className="app">
-      <Button />
+      <ContactCard />
     </div>
   );
 }
