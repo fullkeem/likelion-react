@@ -9,18 +9,8 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
   ],
+  overrides: [],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
-  overrides: [
-    {
-      env: {
-        node: true,
-      },
-      files: ['.eslintrc.{js,cjs}'],
-      parserOptions: {
-        sourceType: 'script',
-      },
-    },
-  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
