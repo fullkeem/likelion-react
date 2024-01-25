@@ -11,6 +11,10 @@ function getStaticAsset(assetPath) {
   return import.meta.env.BASE_URL + assetPath;
 }
 
+function getStaticeImage(imagePath) {
+  return;
+}
+
 function Exercise() {
   return (
     <figure>
