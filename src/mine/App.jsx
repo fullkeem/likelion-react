@@ -1,4 +1,4 @@
-import Exercise from './25-mapping-over-data';
+import Exercise from './28-conditional-rendering';
 
 export default function App() {
   return (
