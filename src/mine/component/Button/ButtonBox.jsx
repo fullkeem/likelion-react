@@ -1,9 +1,6 @@
 function ButtonBox() {
   return (
-    <div
-      role="group"
-      style="display: flex; flex-flow: column; gap: 4px; inline-size: 120px; margin: 20px;"
-    >
+    <div role="group" className="button">
       <button
         type="button"
         style={{
