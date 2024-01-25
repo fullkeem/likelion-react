@@ -1,5 +1,5 @@
 import './App.css';
-import Exercise from '../lecture/25-mapping-over-data-v0.4';
+import Exercise from '../lecture/28-conditional-rendering.jsx';
 
 function App() {
   return (
