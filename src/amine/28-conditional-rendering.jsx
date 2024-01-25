@@ -10,19 +10,24 @@ export default function Exercise() {
 
   // 클라이언트 측 렌더링 (클라이언트에서 그립니다.)
   // 조건부 렌더링 (실제 DOM에 그리지 않는다.)
-  if (isSignin) {
-    markup = <DashboardPage />;
-  } else {
-    markup = <SignInPage />;
+
+  // 1-1. if 문 활용 렌더링
+  //   if (isSignin) {
+  //     markup = <DashboardPage />;
+  //   } else {
+  //     markup = <SignInPage />;
+  //   }
+
+  //   return markup;
+  // }
+
+  // 1-2. switch 문 활용 렌더링
+
+  function DashboardPage() {
+    return <div>대시보드 페이지 표시</div>;
   }
 
-  return markup;
-}
-
-function DashboardPage() {
-  return <div>대시보드 페이지 표시</div>;
-}
-
-function SignInPage() {
-  return <div>로그인 페이지 표시</div>;
+  function SignInPage() {
+    return <div>로그인 페이지 표시</div>;
+  }
 }
