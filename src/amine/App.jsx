@@ -1,4 +1,4 @@
-import Exercise from './28-conditional-rendering';
+import Exercise from './29-a11y-hidden-component';
 
 export default function App() {
   return (
