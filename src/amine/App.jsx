@@ -1,4 +1,4 @@
-import Exercise from './29-a11y-hidden-component-v2';
+import Exercise from './29-a11y-hidden-components-v3';
 
 export default function App() {
   return (
