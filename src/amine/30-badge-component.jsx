@@ -1,4 +1,4 @@
-import classes from './30-';
+import classes from './30-badge-component.module.css';
 
 function Exercise() {
   return (

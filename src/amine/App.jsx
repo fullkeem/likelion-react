@@ -1,4 +1,4 @@
-import Exercise from './30-badge-component';
+import Exercise from './32-react-state-management';
 
 export default function App() {
   return (
