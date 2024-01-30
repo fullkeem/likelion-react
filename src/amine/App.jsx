@@ -1,4 +1,4 @@
-import Exercise from './32-react-state-management';
+import Exercise from './33-avoid-bomb';
 
 export default function App() {
   return (
