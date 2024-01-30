@@ -1,3 +1,4 @@
+import './App.css';
 import Exercise from './33-avoid-bomb';
 
 export default function App() {

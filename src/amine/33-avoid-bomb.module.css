@@ -88,6 +88,7 @@
   .ball {
     animation-play-state: running;
   }
+
   .bomb {
     animation-play-state: running;
   }
@@ -97,45 +98,59 @@
   0% {
     transform: translate(150px, 40px);
   }
+
   10% {
     transform: translate(10px, 230px);
   }
+
   16% {
     transform: translate(50px, 130px);
   }
+
   25% {
     transform: translate(250px, 20px);
   }
+
   30% {
     transform: translate(210px, 0px);
   }
+
   39% {
     transform: translate(20px, 250px);
   }
+
   50% {
     transform: translate(150px, 150px);
   }
+
   60% {
     transform: translate(234px, 160px);
   }
+
   62% {
     transform: translate(250px, 150px);
   }
+
   64.5% {
     transform: translate(240px, 135px);
   }
+
   70% {
     transform: translate(0px, 0px);
   }
+
   76% {
     transform: translate(100px, 100px);
   }
+
   82% {
     transform: translate(200px, 0px);
   }
+
   90% {
     transform: translate(100px, 250px);
   }
+
   100% {
     transform: translate(150px, 40px);
   }
@@ -145,42 +160,55 @@
   0% {
     transform: translate(0px, 140px);
   }
+
   5% {
     transform: translate(160px, 30px);
   }
+
   12% {
     transform: translate(180px, 130px);
   }
+
   25% {
     transform: translate(0px, 40px);
   }
+
   28% {
     transform: translate(20px, 20px);
   }
+
   40% {
     transform: translate(200px, 240px);
   }
+
   47% {
     transform: translate(100px, 200px);
   }
+
   50% {
     transform: translate(50px, 230px);
   }
+
   64% {
     transform: translate(-50px, 0px);
   }
+
   68% {
     transform: translate(40px, 35px);
   }
+
   76% {
     transform: translate(-31px, 200px);
   }
+
   84.5% {
     transform: translate(150px, 120px);
   }
+
   93% {
     transform: translate(30px, 240px);
   }
+
   100% {
     transform: translate(0px, 140px);
   }
