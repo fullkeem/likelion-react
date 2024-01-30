@@ -1,5 +1,5 @@
 import './App.css';
-import Exercise from '../lecture/30-badge-component';
+import Exercise from '../lecture/33-avoid-bomb';
 
 function App() {
   return (
