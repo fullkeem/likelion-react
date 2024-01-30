@@ -1,5 +1,5 @@
 import './App.css';
-import Exercise from './33-avoid-bomb';
+import Exercise from './34-object-array-state-manage';
 
 export default function App() {
   return (
