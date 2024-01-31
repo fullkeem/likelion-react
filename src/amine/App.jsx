@@ -1,5 +1,5 @@
 import './App.css';
-import Exercise from './35-props-vs-stats';
+import Exercise from './37-react-form-exercise';
 
 export default function App() {
   return (
