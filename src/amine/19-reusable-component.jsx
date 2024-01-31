@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import FormControl from './component/FormControl';
+import FormControl from '@/component/FormControl';
 
 // [학습 주제]
 // 컴포넌트 재사용

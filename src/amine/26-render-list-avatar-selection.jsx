@@ -1,5 +1,5 @@
-import contactData from '../data/contacts.json';
-import Avatar from './component/Avatar/Avatar';
+import contactData from '@/data/contacts.json';
+import Avatar from '@/component';
 
 // console.log(contactData.items /* [...] */);
 
