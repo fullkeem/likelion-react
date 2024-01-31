@@ -25,6 +25,7 @@ const INITIAL_FEEL_MESSAGE = '공부하기 좋은 날이네~';
 
 // 컴포넌트 추출
 function FormExample() {
+  //[1] 오늘 기분
   const [feelMessage, setFeelMessage] = useState(INITIAL_FEEL_MESSAGE);
 
   const handleUpdateFeelMessage = (nextMessage) => {
@@ -35,19 +36,17 @@ function FormExample() {
     setFeelMessage(e.target.value);
   };
 
-  // email 상태 관리
+  // [2] email 상태 관리
   const [email, setEmail] = useState('');
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value);
   };
 
-  // agree 상태 관리
+  // [3] agree 상태 관리
   const [agree, setAgree] = useState('네' /* '아니오' */);
-
   const handleChangeAgree = (e) => {
-    // <input type="radio"
-    e.target.value;
+    setAgree(e.target.value);
   };
 
   return (
@@ -68,15 +67,28 @@ function FormExample() {
         />
 
         <div>
-          <label htmlFor="">
-            <input type="radio" name="agree" id="" />
+          <label>
+            <input
+              type="radio"
+              name="agree"
+              value="네"
+              checked={agree === '네'}
+              onChange={handleChangeAgree}
+            />
             동의하오!
           </label>
-          <label htmlFor="">
-            <input type="radio" name="agree" id="" />
+          <label>
+            <input
+              type="radio"
+              name="agree"
+              value="아니오"
+              checked={agree === '아니오'}
+              onChange={handleChangeAgree}
+            />
             이의있소!
           </label>
         </div>
+
         <ButtonGroup
           onUpdate={handleUpdateFeelMessage}
           resetMessage={INITIAL_FEEL_MESSAGE}

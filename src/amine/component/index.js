@@ -5,3 +5,4 @@ export { default as Avatar } from './Avatar/Avatar';
 export { default as SearchBar } from './Avatar/Avatar';
 export { default as Button } from './Button/Button';
 export { default as CountUp } from './CountUp/CountUp';
+export { default as FormInput } from './FormInput/FormInput';
