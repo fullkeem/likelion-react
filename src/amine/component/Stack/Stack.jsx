@@ -14,7 +14,9 @@ export default function Stack({
 
   const componentStyles = {
     '--direction': vertical ? 'column' : 'row',
-    '--gap': gap ? '100px' : '10px',
+    '--gap': gap ? `${gap}px` : '10px',
+    '--marginInline': marginInline ? `${marginInline}px` : '0px',
+    '--marginBlock': marginBlock ? `${marginBlock}px` : '0px',
     ...customStyles,
   };
 
