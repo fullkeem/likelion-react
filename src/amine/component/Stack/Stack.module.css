@@ -9,5 +9,6 @@
   display: var(--display);
   flex-flow: var(--direction) var(--wrap);
   gap: var(--gap);
+  align-items: flex-start;
   margin: var(--marginBlock) var(--marginInline);
 }
