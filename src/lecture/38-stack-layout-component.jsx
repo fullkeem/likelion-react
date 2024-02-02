@@ -4,6 +4,16 @@ import { useId, useState } from 'react';
 
 function Exercise() {
   return (
+    <>
+      <FormControlExample />
+    </>
+  );
+}
+
+/* -------------------------------------------------------------------------- */
+
+function FormControlExample() {
+  return (
     <Stack vertical gap={16} my={20}>
       <Stack vertical gap={4}>
         <h2>폼 컨트롤 II</h2>
@@ -46,20 +56,19 @@ function Form() {
   };
 
   const handleChangeAllToppings = (e) => {
-    setOrderState((orderState) => ({
+    const { checked } = e.target;
+
+    const nextOrderState = {
       ...orderState,
-      isAllToppings: e.target.checked,
-    }));
-    setOrderState((orderState) => ({
-      ...orderState,
-      toppings: orderState.isAllToppings ? PIZZA.toppings : [],
-    }));
+      isAllToppings: checked,
+      toppings: checked ? PIZZA.toppings : [],
+    };
+
+    setOrderState(nextOrderState);
   };
 
   const handleChangePizzaToppings = (e) => {
     const { value: topping, checked: isChecked } = e.target;
-
-    // console.log('이전 토핑 목록: ', orderState.toppings);
 
     let nextToppings = [];
 
@@ -79,8 +88,6 @@ function Form() {
       toppings: nextToppings,
       isAllToppings: hasFullFilledToppings,
     };
-
-    console.log('다음 토핑 목록: ', nextToppings, hasFullFilledToppings);
 
     setOrderState(nextOrderState);
   };
@@ -123,6 +130,7 @@ function Form() {
           key={topping}
           name="topping"
           value={topping}
+          checked={orderState.toppings.includes(topping)}
           onChange={handleChangePizzaToppings}
         >
           {topping}

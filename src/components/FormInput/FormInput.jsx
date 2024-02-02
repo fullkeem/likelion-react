@@ -13,6 +13,7 @@ function FormInput({
   gap = 4,
   style: customStyle,
   hiddenLabel = false,
+  inputProps = {},
   ...restProps
 }) {
   const id = useId();
@@ -45,6 +46,7 @@ function FormInput({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        {...inputProps}
       />
     </ComponentName>
   );
