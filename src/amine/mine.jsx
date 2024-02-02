@@ -1,6 +1,6 @@
 import '@/styles/main.css';
 
-import { StrictMode } from 'react';
+// import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from '@/amine/App';
 
@@ -8,9 +8,9 @@ const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
 root.render(
-  <StrictMode>
+  <>
     <App />
-  </StrictMode>
+  </>
 );
 
 // React.Component Type 1 :: class syntax

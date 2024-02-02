@@ -1,5 +1,5 @@
 import { app as appclassName } from './App.module.css';
-import Exercise from '@/amine/40-2-side-effects';
+import Exercise from '@/amine/40-3-side-effects';
 
 export default function App() {
   return (
