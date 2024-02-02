@@ -6,7 +6,7 @@ function FormInput({
   name,
   type = 'text',
   label,
-  name,
+  // name,
   placeholder,
   value,
   onChange,
@@ -42,7 +42,7 @@ function FormInput({
         id={id}
         name={name}
         type={type}
-        name={name}
+        // name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}

@@ -1,4 +1,4 @@
-import { Stack } from '@/components';
+import { Stack } from '@/amine/component';
 import { useState } from 'react';
 
 let renderCount = 0;
@@ -9,7 +9,7 @@ setTimeout(() => {
 
 const API_ENDPOINT = `${
   import.meta.env.VITE_PB_API
-}/api/collections/products/records?page=2&perPage=2`;
+}/api/collections/products/records`;
 
 function Exercise() {
   const [products, setProducts] = useState(null); // null | Array<{id, name, ...}>
@@ -124,7 +124,7 @@ function Exercise() {
       {products && (
         <Stack as="ul" vertical gap={12}>
           {products.map((product) => (
-            <li key={product.id}>{product.title}</li>
+            <li key={product.id}>{product.description}</li>
           ))}
         </Stack>
       )}
