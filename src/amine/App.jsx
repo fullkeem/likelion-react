@@ -1,5 +1,5 @@
 import { app as appclassName } from './App.module.css';
-import Exercise from '@/amine/38-stack-layout-component';
+import Exercise from '@/amine/40-side-effects';
 
 export default function App() {
   return (

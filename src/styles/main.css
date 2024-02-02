@@ -1,4 +1,5 @@
 @import url('./exercies.css');
+@import './tailwind.css';
 
 :root {
   --primary: #2731f4;
