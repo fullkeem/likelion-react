@@ -1,5 +1,5 @@
-import { Stack } from '@/components';
-import { useState, useEffect } from 'react';
+import { Stack } from '@/amine/component';
+import { useState, useEffect, useId } from 'react';
 
 const API_ENDPOINT = `${
   import.meta.env.VITE_PB_API
@@ -86,9 +86,16 @@ function Exercise() {
       .catch((error) => console.error(error));
   };
 
+  const displayCheckId = useId();
+  const [isShow, setIsShow] = useState(false);
+
+  const handleToggle = () => {
+    setIsShow((s) => !s);
+  };
+
   return (
     <Stack vertical className="mx-6">
-      <h2 className="text-2xl mt-4">부수 효과(Side Effects)</h2>
+      <h2 className="mt-4 text-2xl">부수 효과(Side Effects)</h2>
       <Button
         className="button"
         count={productsCount}
@@ -121,8 +128,35 @@ function Exercise() {
           ))}
         </Stack>
       )}
+
+      <Stack vertical gap={6} my={20}>
+        <Stack>
+          <input
+            type="checkbox"
+            id={displayCheckId}
+            checked={isShow}
+            onChange={handleToggle}
+          />
+          <label htmlFor={displayCheckId}>
+            {isShow ? '메시지 감춤' : '메시지 표시'}
+          </label>
+        </Stack>
+        {isShow && <Message message="클린업(정리: cleanup)이 중요하다!" />}
+      </Stack>
     </Stack>
   );
+}
+
+function Message({ message }) {
+  useEffect(() => {
+    const handleMove = (e) => {
+      console.log({ x: e.clientX, y: e.clientY });
+    };
+
+    globalThis.addEventListener('mousemove', handleMove);
+  }, []);
+
+  return <p>{message}</p>;
 }
 
 function Button({ renderCount = 0, children, ...restProps }) {
