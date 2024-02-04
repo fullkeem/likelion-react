@@ -1,5 +1,5 @@
-function A11yHidden({ children }) {
-  return <span style={styles}>{children}</span>;
+function A11yHidden({ as: ComponentName = 'div', children }) {
+  return <ComponentName style={styles}>{children}</ComponentName>;
 }
 
 // CSS in JS 도구
