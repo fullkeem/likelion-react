@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import useReference from '@/hooks/useReference';
+import { useTime } from '@/hooks';
 
 function Exercise() {
   return (
@@ -12,53 +11,21 @@ function Exercise() {
 }
 
 function StopWatch() {
-  const [time, setTime] = useState(0);
-
-  // 리액트 렌더링에 영향을 주지 않으면서
-  // 어떤 값을 기억하고 싶다. useRef(memoizedValue)
-  const timerRef = useReference({
-    id: 0,
-    start: null,
-  });
-
-  const handleStart = () => {
-    if (!timerRef.current.start) {
-      timerRef.current.start = Date.now();
-    }
-
-    const start = timerRef.current.start;
-
-    timerRef.current.id = setInterval(() => {
-      const lastTime = (Date.now() - start) / 1000;
-      setTime(lastTime);
-    }, 10);
-  };
-
-  const handlePause = () => {
-    clearInterval(timerRef.current.id);
-  };
-
-  const handleStop = () => {
-    handlePause();
-    setTime(0);
-    timerRef.current.start = null;
-
-    console.log({ stop: timerRef.current });
-  };
-
-  const displayTimer = time === 0 ? 0 : time.toFixed(3);
+  // 로직 분리
+  // 커스텀 훅 사용 API
+  const { time, start, pause, stop, getDisplayTime } = useTime();
 
   return (
     <div>
-      <h2>Stop Watch: {displayTimer}초</h2>
+      <h2>Stop Watch: {getDisplayTime(time)}초</h2>
       <div className="flex gap-2 my-4">
-        <button type="button" onClick={handleStart}>
+        <button type="button" onClick={start}>
           시작
         </button>
-        <button type="button" onClick={handlePause}>
+        <button type="button" onClick={pause}>
           일시정지
         </button>
-        <button type="button" onClick={handleStop}>
+        <button type="button" onClick={stop}>
           정지
         </button>
       </div>
@@ -67,9 +34,17 @@ function StopWatch() {
 }
 
 function Timer() {
+  const { stop, time, getDisplayTime, start } = useTime();
+
+  const printTime = getDisplayTime(time, 2);
+
   return (
     <div>
-      <h2>타이머</h2>
+      <button type="button" onClick={start}>
+        BEGIN
+      </button>
+      <h2>타이머: {printTime}s</h2>
+      <button type="button">{stop}</button>
     </div>
   );
 }
