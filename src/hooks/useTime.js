@@ -36,6 +36,10 @@ function useTime() {
 
   // 배열 반환하기
   // 배열 구조 분해할당 할 때 순서가 중요 (이름이 아님)
+  // return [time, handleStart, handlePause, handleStop, getDisplayTime];
+
+  // 객체 반환하기
+  // 객체 구조 분해할당 할 때 이름이 중요 (순서가 아님)
   return {
     time,
     play: handleStart,
@@ -43,10 +47,6 @@ function useTime() {
     stop: handleStop,
     getDisplayTime,
   };
-
-  // 객체 반환하기
-  // 객체 구조 분해할당 할 때 이름이 중요 (순서가 아님)
-  // return { time, handleStart, handlePause, handleStop };
 }
 
 export default useTime;
