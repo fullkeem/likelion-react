@@ -1,5 +1,7 @@
 import React from 'react';
 
+// 첫번째 커스텀(사용자 정의) 훅
+
 function Exercise() {
   return (
     <div>
@@ -9,40 +11,39 @@ function Exercise() {
   );
 }
 
-// 사이드 이펙트를 사용하는 리액트 컴포넌트
-// [힌트] 리액트 훅 : 리-렌더링 유발 ❌, 함수가 리-렌더링 되어도 값을 기억
-//       useRef vs. useState
 function StopWatch() {
   const [time, setTime] = React.useState(0);
 
-  const timerRef = React.useRef(0); // { current: 0 }
+  // 리액트 렌더링에 영향을 주지 않으면서
+  // 어떤 값을 기억하고 싶다. useRef(memoizedValue)
+  const timerRef = React.useRef({
+    id: 0,
+    start: null,
+  });
 
-  // 스톱워치 시작 핸들러
   const handleStart = () => {
-    const current = Date.now();
+    if (!timerRef.current.start) {
+      timerRef.current.start = Date.now();
+    }
 
-    const start = current;
-    let now = current;
+    const start = timerRef.current.start;
 
-    // 인터벌 타이머 작동
-    timerRef.current = setInterval(() => {
-      now = Date.now();
-      const nextTime = (now - start) / 1000;
-      setTime(nextTime);
-    }, 10 /* 0.01s === 10ms */);
-
-    console.log({ in: timerRef.current });
+    timerRef.current.id = setInterval(() => {
+      const lastTime = (Date.now() - start) / 1000;
+      setTime(lastTime);
+    }, 10);
   };
 
-  // 스톱워치 일시정지 핸들러
   const handlePause = () => {
-    console.log('일시정지');
-    clearInterval(timerRef.current);
+    clearInterval(timerRef.current.id);
   };
 
-  // 스톱워치 정지 핸들러
   const handleStop = () => {
-    console.log('정지');
+    handlePause();
+    setTime(0);
+    timerRef.current.start = null;
+
+    console.log({ stop: timerRef.current });
   };
 
   const displayTimer = time === 0 ? 0 : time.toFixed(3);
