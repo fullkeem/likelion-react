@@ -1,4 +1,4 @@
-import { useId, forwardRef } from 'react';
+import { useId, forwardRef, useImperativeHandle, useRef } from 'react';
 import { A11yHidden } from '@/components';
 
 function EuidInput(
@@ -18,7 +18,18 @@ function EuidInput(
   },
   ref
 ) {
-  console.log(ref);
+  useImperativeHandle(ref, () => {
+    return {
+      focus() {
+        inputRef.current.focus();
+      },
+      styling(cssRules) {
+        inputRef.current.style.cssText = cssRules;
+      },
+    };
+  });
+
+  const inputRef = useRef(null);
 
   const id = useId();
 
@@ -43,7 +54,7 @@ function EuidInput(
     >
       {labelElement}
       <input
-        ref={ref}
+        ref={inputRef}
         id={id}
         type={type}
         name={name}
