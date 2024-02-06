@@ -1,5 +1,5 @@
 import { app as appclassName } from './App.module.css';
-import Exercise from '@/amine/41-6-custom-hook';
+import Exercise from '@/amine/42-1-external-lib-dom-control';
 
 export default function App() {
   return (
