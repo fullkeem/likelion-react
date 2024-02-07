@@ -1,10 +1,8 @@
 import { A11yHidden } from '@/components';
-import { useToggle } from '@/hooks';
 import { number } from 'prop-types';
-import { useId } from 'react';
+import { useId, useState } from 'react';
 
 function Exercise() {
-  const [value, toggle] = useToggle(true);
   return (
     <div>
       <h2>useCallback vs. useMemo</h2>
@@ -16,25 +14,50 @@ function Exercise() {
 function Counter({ min = 0, count = 0, step = 1, max = 50 }) {
   const id = useId();
 
-  const handleChange = (e) => {};
+  const [value, setValue] = useState(count);
+
+  const handleChange = (e) => {
+    const nextValue = Number(e.target.value);
+    setValue(nextValue);
+  };
+
+  const handleCountUp = () => {
+    setValue((v) => v + step);
+  };
+
+  const handleCountDown = () => {
+    setValue((v) => v - step);
+  };
 
   return (
-    <div className="flex gap-1" aria-labelledby={id}>
+    <div className="flex gap-1 my-5" aria-labelledby={id}>
       <A11yHidden as="h3" id={id}>
         카운트
       </A11yHidden>
-      <button type="button" aria-label="카운트 감소">
+      <button
+        type="button"
+        aria-label="카운트 감소"
+        title="카운트 감소"
+        className="mr-4"
+        onClick={handleCountUp}
+      >
         -
       </button>
       <input
         type="number"
         min={min}
-        value={count}
+        value={value}
         onChange={handleChange}
         step={step}
         max={max}
+        className="bg-transparent"
       />
-      <button type="button" aria-label="카운트 증가">
+      <button
+        type="button"
+        aria-label="카운트 증가"
+        title="카운트 증가"
+        onClick={handleCountDown}
+      >
         +
       </button>
     </div>
