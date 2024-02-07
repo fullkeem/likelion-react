@@ -1,6 +1,14 @@
 import { A11yHidden } from '@/components';
 import { number, func } from 'prop-types';
-import { useCallback, useEffect, useId, useRef, useState } from 'react';
+import {
+  createElement,
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { useToggle } from '@/hooks';
 
 function Exercise() {
@@ -31,27 +39,29 @@ function Counter({ min = 0, count = 0, step = 1, max = 50 }) {
     setValue((v) => v + step);
   }, [step]);
 
+  // const handleCountDown = () => {
+  //   setValue((v) => v - step);
+  // };
+
   const handleCountDown = useCallback(() => {
     setValue((v) => v - step);
   }, [step]);
 
-  const countDownRef = useRef(handleCountDown);
-
-  useEffect(() => {
-    const prevCountDown = countDownRef.current;
-
-    console.log(
-      'prevCountDown vs. handleCountDown -> ',
-      Object.is(prevCountDown, handleCountDown)
-    );
-  }, [handleCountDown, value]);
+  // 컴포넌트(함수 값)도 기억 가능
+  // 리-렌더링 할 때 기억된 값을 사용!
+  const counterDecButton = useMemo(
+    () => <CounterDecButton onUpdate={handleCountDown} />,
+    /* { type: CounterDecButton } */ [handleCountDown]
+  );
 
   return (
     <div className="flex gap-1 my-5" aria-labelledby={id}>
       <A11yHidden as="h3" id={id}>
         카운트
       </A11yHidden>
-      <CounterDecButton />
+      {counterDecButton}
+      {/* <CounterDecButton onUpdate={handleCountDown} /> */}
+      {/* { createElement(CounterDecButton, {  onUpdate: handleCountDown })} */}
       <CounterInput
         min={min}
         value={value}
@@ -59,7 +69,7 @@ function Counter({ min = 0, count = 0, step = 1, max = 50 }) {
         max={max}
         onUpdate={handleChange}
       />
-      <CounterIncButton />
+      <CounterIncButton onUpdate={handleCountUp} />
     </div>
   );
 }
@@ -72,14 +82,25 @@ Counter.propTypes = {
 };
 
 /* CounterButton ------------------------------------------------------------ */
-function CounterDecButton({ onUpdate }) {
+function CounterDecButton(props) {
+  const comparePrevPropsRef = useRef(props);
+
+  useEffect(() => {
+    const prevProps = comparePrevPropsRef.current;
+
+    console.log(
+      '이전 onUpdate vs. 이후 onUpdate -> ',
+      Object.is(prevProps.onUpdate, props.onUpdate)
+    );
+  }, [props.onUpdate]);
+
   return (
     <button
       type="button"
       aria-label="카운트 감소"
       title="카운트 감소"
       className="mr-4"
-      onClick={onUpdate}
+      onClick={props.onUpdate}
     >
       -
     </button>
