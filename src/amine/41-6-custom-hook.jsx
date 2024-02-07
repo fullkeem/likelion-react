@@ -1,10 +1,10 @@
 import { useStorage } from '@/hooks';
 
-const KEY = 'to-fullkeem';
+const KEY = 'to-choongman';
 
 export default function Exercise() {
   // 1. 컴포넌트 로직 => 훅 함수 분리
-  const [message, setMessage] = useStorage(KEY, 'i`m not alone...');
+  const [message, setMessage] = useStorage(KEY, '커스텀 훅 너 이 짜식');
 
   const handleUpdate = (e) => {
     setMessage(e.target.value);
