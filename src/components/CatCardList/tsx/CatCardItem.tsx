@@ -1,5 +1,5 @@
 import classes from './CatCardItem.module.css';
-import { convertDayFormat, getStaticImage } from '@/utils';
+import { getStaticImage, convertDayFormat } from '@/utils';
 import type { CatCardItem } from './types';
 
 type CatCardItemProps = {
@@ -8,15 +8,15 @@ type CatCardItemProps = {
 
 function CatCardItem({
   cat: { imageAlt, imageSrc, name, badges, birthday },
-}: CatCardItemProps) {
+}: CatCardItemProps): JSX.Element {
   let renderBadges = null;
   const badgeCount = badges?.length ?? 0;
 
   // if 문
-  if (badges ?? badgeCount > 0) {
+  if (badges && badgeCount > 0) {
     // for 문
     const renderBadgeList = [];
-    for (let i = 0, l = badges.length; i < l; ++i) {
+    for (let i = 0, l = badges?.length; i < l; ++i) {
       const badge = badges[i];
 
       renderBadgeList.push(<li key={badge.slug}>{badge.label}</li>);
@@ -48,9 +48,5 @@ function CatCardItem({
     </article>
   );
 }
-
-CatCardItem.propTypes = {
-  cat: CatType.isRequired,
-};
 
 export default CatCardItem;
