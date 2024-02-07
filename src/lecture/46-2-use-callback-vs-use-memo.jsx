@@ -1,5 +1,5 @@
 import { A11yHidden } from '@/components';
-import { number } from 'prop-types';
+import { number, func } from 'prop-types';
 import { useCallback, useEffect, useId, useRef, useState } from 'react';
 import { useToggle } from '@/hooks';
 
@@ -51,32 +51,15 @@ function Counter({ min = 0, count = 0, step = 1, max = 50 }) {
       <A11yHidden as="h3" id={id}>
         카운트
       </A11yHidden>
-      <button
-        type="button"
-        aria-label="카운트 감소"
-        title="카운트 감소"
-        className="mr-4"
-        onClick={handleCountDown}
-      >
-        -
-      </button>
-      <input
-        type="number"
+      <CounterDecButton />
+      <CounterInput
         min={min}
         value={value}
-        onChange={handleChange}
         step={step}
         max={max}
-        className="bg-transparent"
+        onUpdate={handleChange}
       />
-      <button
-        type="button"
-        aria-label="카운트 증가"
-        title="카운트 증가"
-        onClick={handleCountUp}
-      >
-        +
-      </button>
+      <CounterIncButton />
     </div>
   );
 }
@@ -89,7 +72,61 @@ Counter.propTypes = {
 };
 
 /* CounterButton ------------------------------------------------------------ */
+function CounterDecButton({ onUpdate }) {
+  return (
+    <button
+      type="button"
+      aria-label="카운트 감소"
+      title="카운트 감소"
+      className="mr-4"
+      onClick={onUpdate}
+    >
+      -
+    </button>
+  );
+}
+
+CounterDecButton.propTypes = {
+  onUpdate: func,
+};
+
+function CounterIncButton({ onUpdate }) {
+  return (
+    <button
+      type="button"
+      aria-label="카운트 증가"
+      title="카운트 증가"
+      onClick={onUpdate}
+    >
+      +
+    </button>
+  );
+}
+
+CounterIncButton.propTypes = CounterDecButton.propTypes;
 
 /* CounterInput ------------------------------------------------------------- */
+
+function CounterInput({ min, value, onUpdate, step, max }) {
+  return (
+    <input
+      type="number"
+      min={min}
+      value={value}
+      onChange={onUpdate}
+      step={step}
+      max={max}
+      className="bg-transparent"
+    />
+  );
+}
+
+CounterInput.propTypes = {
+  min: number.isRequired,
+  value: number.isRequired,
+  step: number.isRequired,
+  max: number.isRequired,
+  onUpdate: func.isRequired,
+};
 
 export default Exercise;
