@@ -1,10 +1,7 @@
 import { func } from 'prop-types';
 import { useRef } from 'react';
-import { useRef } from 'react';
 
 function MessageInput({ onSend }) {
-  const inputRef = useRef(null);
-
   const inputRef = useRef(null);
 
   const handleSendMessage = (e) => {
