@@ -1,5 +1,9 @@
 function ChatRoomInfo() {
-  return <div>ChatRoomInfo</div>;
+  return (
+    <div>
+      <h3>ChatRoomInfo</h3>
+    </div>
+  );
 }
 
 export default ChatRoomInfo;

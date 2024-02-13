@@ -1,5 +1,9 @@
 function MessageInput() {
-  return <div>MessageInput</div>;
+  return (
+    <div>
+      <h3>MessageInput</h3>
+    </div>
+  );
 }
 
 export default MessageInput;

@@ -15,6 +15,8 @@ import ChatPage from './context-api/ChatPage';
 function Exercise() {
   return (
     <div>
+      <h2>컨텍스트 API</h2>
+      <p>리액트 컴포넌트 간 상태를 공유하는 효율적인 방법</p>
       <ChatPage />
     </div>
   );
