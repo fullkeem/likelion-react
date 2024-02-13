@@ -15,10 +15,6 @@ function ChatRoom({ users }) {
   );
 }
 
-ChatRoom.prototype = {
-  users: CHAT_USER_TYPE,
-};
-
 ChatRoom.propTypes = {
   users: CHAT_USER_TYPE,
 };
