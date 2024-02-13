@@ -1,7 +1,8 @@
 import ChatRoomInfo from './ChatRoomInfo';
 import MessageInput from './MessageInput';
 import SpeechBubble from './SpeechBubble';
-import { shape, oneOf } from 'prop-types';
+import { shape, exact, string, oneOf } from 'prop-types';
+import { memo } from 'react';
 
 function ChatRoom({ users }) {
   // 변경된 users 상태를 읽어야 한다.
@@ -23,4 +24,12 @@ ChatRoom.prototype = {
   }).isRequired,
 };
 
-export default ChatRoom;
+ChatRoom.propTypes = {
+  users: exact({
+    id: string,
+    name: string,
+    role: oneOf(['GUEST', 'MEMBER', 'ADMINISTRATOR']),
+  }).isRequired,
+};
+
+export default memo(ChatRoom);
