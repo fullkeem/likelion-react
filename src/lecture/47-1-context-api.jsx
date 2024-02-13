@@ -1,4 +1,4 @@
-import React from 'react';
+import ChatPage from './context-api/ChatPage';
 
 // [학습 순서]
 // 1. 상태 끌어올리기 전략
@@ -15,8 +15,7 @@ import React from 'react';
 function Exercise() {
   return (
     <div>
-      <h2>컨텍스트 API</h2>
-      <p>리액트 컴포넌트 간 상태를 공유하는 효율적인 방법</p>
+      <ChatPage />
     </div>
   );
 }
