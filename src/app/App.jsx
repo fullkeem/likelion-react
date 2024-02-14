@@ -1,4 +1,4 @@
-import Exercise from '@/lecture/48-1-client-side-routing';
+import Exercise from '@/lecture/47-1-context-api';
 import { app as appClasName } from './App.module.css';
 
 function App() {
