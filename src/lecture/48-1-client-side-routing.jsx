@@ -1,4 +1,6 @@
 import { RouterProvider } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+
 import router from '@/routes';
 
 // [학습 순서]
@@ -31,7 +33,7 @@ import router from '@/routes';
 // 6-6-2. useNavigate 훅 (https://bit.ly/3OGex3a)
 // 6-7. "찾을 수 없음(Not Found)" 에러 핸들링 (https://bit.ly/48nxdvG)
 //
-// 7. 검색 엔진 최적화(SEO)
+// 7. 검색 엔진 최적화(SEO) → 기계(검색봇) 접근 → 사용자 접근성 향상
 // 7-1. useDocumentTitle 커스텀 훅
 // 7-2. react-helmet-async 활용 (https://bit.ly/3OEnLg4)
 //
@@ -59,7 +61,7 @@ import router from '@/routes';
 
 function Exercise() {
   return (
-    <>
+    <HelmetProvider>
       <div className="flex flex-col space-y-1">
         <h2 className="text-2xl">클라이언트 사이드 라우팅(CSR)</h2>
         <p className="text-xs">
@@ -67,7 +69,7 @@ function Exercise() {
         </p>
       </div>
       <RouterProvider router={router} />
-    </>
+    </HelmetProvider>
   );
 }
 
