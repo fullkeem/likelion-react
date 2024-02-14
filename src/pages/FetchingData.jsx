@@ -1,8 +1,8 @@
-import pb from '@/api/pocketbase';
-import { getDocumentTitle, getPbImage } from '@/utils';
 import { Helmet } from 'react-helmet-async';
-import { useLoaderData, useSearchParams } from 'react-router-dom';
 import { shape, string, number } from 'prop-types';
+import { Link, useLoaderData, useSearchParams } from 'react-router-dom';
+import { getDocumentTitle, getPbImage, getSlug } from '@/utils';
+import pb from '@/api/pocketbase';
 
 function FetchingDataPage() {
   const productsData = useLoaderData();
@@ -14,9 +14,10 @@ function FetchingDataPage() {
   // for (const [key, value] of searchParams) {
   //   console.log(key, typeof value)
   // }
-  
+
   const productOptions = {
-    size: searchParams.get('size'), filter: searchParams.get('filter')
+    size: searchParams.get('size'),
+    filter: searchParams.get('filter'),
   };
 
   return (
@@ -29,9 +30,15 @@ function FetchingDataPage() {
         />
       </Helmet>
       <h2 className="my-5">데이터 가져오기</h2>
-      <ul>
+      <ul className="flex flex-col gap-2">
         {productsData.items?.map((product) => {
-          return <ProductCard key={product.id} product={product} options={productOptions} />;
+          return (
+            <ProductCard
+              key={product.id}
+              product={product}
+              options={productOptions}
+            />
+          );
         })}
       </ul>
     </>
@@ -60,18 +67,26 @@ export async function loader() {
 /* -------------------------------------------------------------------------- */
 
 function ProductCard({ product, options }) {
+  const styles = {
+    width: options.size,
+    filter: options.filter,
+  };
 
-  console.log(options)
+  const slug = `${getSlug(product.title)}/color/${getSlug(product.color)}`;
 
   return (
-    <li>
-      <h4>
-        {product.title} ({product.color})
-      </h4>
-      <img src={product.photo} className="w-full h-auto aspect-auto" style={{
-        width: options.size,
-        filter: options.filter
-      }} alt="" />
+    <li className="shadow-lg flex flex-col space-y-1 p-2 border border-stone-200 bg-white">
+      <Link to={`/product/${slug}`}>
+        <h4 className=" order-1">
+          {product.title} ({product.color})
+        </h4>
+        <img
+          src={product.photo}
+          className="w-full h-auto aspect-auto"
+          style={styles}
+          alt=""
+        />
+      </Link>
     </li>
   );
 }
@@ -88,5 +103,5 @@ ProductCard.propTypes = {
   options: shape({
     size: string,
     filter: string,
-  })
+  }),
 };
