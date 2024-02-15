@@ -39,7 +39,6 @@ const navigationItems = [
     // element: <FetchingDataPage />,
     async lazy() {
       const { loader, Component } = await import('@/pages/FetchingData');
-      console.log(loader);
 
       return {
         loader,
@@ -74,6 +73,12 @@ const navigationItems = [
     text: 'UI 차단 없이 상태 변경',
     // element: <NonBlockUIPage />,
     lazy: () => import('@/pages/NonBlockUI'),
+  },
+  {
+    id: 'like-redux-using-use-reducer',
+    path: '/like-redux-using-use-reducer',
+    text: '리듀서 함수 활용',
+    lazy: () => import('@/pages/LearnReducer'),
   },
 ];
 
